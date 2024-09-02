@@ -1,7 +1,14 @@
+// components/Chat.js
 import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:3001"); // Ensure correct URL
+const socket = io(
+  typeof window !== "undefined"
+    ? process.env.NODE_ENV === "development"
+      ? "http://localhost:3002" // Local development URL
+      : "https://socketdemochat.onrender.com" // Production URL
+    : ""
+);
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);

@@ -1,6 +1,6 @@
 // pages/index.js
 import { useEffect } from "react";
-import Chat from "/component/chat"; // Correct import path
+import Chat from "/component/chat"; // Ensure the path is correct
 
 export default function Home() {
   useEffect(() => {
