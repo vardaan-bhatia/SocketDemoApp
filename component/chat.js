@@ -5,7 +5,7 @@ import { io } from "socket.io-client";
 const socket = io(
   typeof window !== "undefined"
     ? process.env.NODE_ENV === "development"
-      ? "http://localhost:3002" // Local development URL
+      ? "http://localhost:3001" // Local development URL
       : "https://socketdemochat.onrender.com" // Production URL
     : ""
 );
@@ -41,10 +41,9 @@ export default function Chat() {
   };
 
   return (
-    <div className="flex flex-col h-full max-w-lg mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-      <div className="flex-1 p-4 overflow-y-auto bg-gray-100">
+    <div className="flex flex-col h-screen max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+      <div className="flex-1 p-4 overflow-y-auto bg-gray-100 mb-2">
         <div className="space-y-2">
-          <h1 className="font-bold text-2xl">Messages</h1>
           {messages.map((msg, index) => (
             <div key={index} className="p-2 bg-blue-100 rounded-lg">
               <p>{msg}</p>
@@ -52,7 +51,7 @@ export default function Chat() {
           ))}
         </div>
       </div>
-      <div className="flex items-center border-t border-gray-200 bg-white p-2 ml-12">
+      <div className="flex items-center border-t border-gray-200 bg-white p-2">
         <input
           type="text"
           value={input}

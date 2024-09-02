@@ -7,7 +7,7 @@ export default function handler(req, res) {
       cors: {
         origin: [
           "https://socketdemochat.onrender.com",
-          "http://localhost:3002",
+          "http://localhost:3001",
         ], // Include both production and local URLs
         methods: ["GET", "POST"],
       },
